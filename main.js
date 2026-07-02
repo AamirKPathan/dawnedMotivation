@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------
-       Load Quote (ZenQuotes API)
-       CORS-safe + fallback
+       Load Quote (Quotable API)
+       Chrome-safe + fallback
     ------------------------- */
     async function loadQuote() {
         const quoteBox = document.getElementById("quoteBox");
         quoteBox.innerText = "Loading quote...";
 
         try {
-            const response = await fetch("https://zenquotes.io/api/random");
+            const response = await fetch("https://api.quotable.io/random");
             const data = await response.json();
-            quoteBox.innerText = data[0].q;
+            quoteBox.innerText = data.content;
         } catch (error) {
             console.error("Quote fetch failed:", error);
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     loadQuote();
-    setInterval(loadQuote, 3600000);
+    setInterval(loadQuote, 3600000); // refresh every hour
 
 
     /* -------------------------
