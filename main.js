@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* -------------------------
+       Load Quote (TypeFit API)
+    ------------------------- */
     async function loadQuote() {
         const quoteBox = document.getElementById("quoteBox");
         quoteBox.innerText = "Loading quote...";
@@ -19,17 +22,37 @@ document.addEventListener("DOMContentLoaded", () => {
     loadQuote();
     setInterval(loadQuote, 3600000);
 
-    // Google Search Logic
+
+    /* -------------------------
+       Google Search (New Tab)
+    ------------------------- */
     document.getElementById("searchForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const query = document.getElementById("searchInput").value.trim();
         if (query.length === 0) return;
 
         const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
-
-        // Open results in a new tab (works everywhere)
         window.open(url, "_blank");
     });
 
+
+    /* -------------------------
+       Dawned OS Clock
+    ------------------------- */
+    function updateFooterClock() {
+        const clock = document.getElementById("footer-clock");
+        const now = new Date();
+
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        clock.innerText = `${hours}:${minutes}`;
+    }
+
+    setInterval(updateFooterClock, 1000);
+    updateFooterClock();
 
 });

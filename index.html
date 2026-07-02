@@ -2,33 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dawned Motivation Browser</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+    <!-- Quote Box -->
     <div class="quote-box" id="quoteBox">
-        Loading Quote
+        Loading quote...
     </div>
 
-    <div class = "search-container">
-        <form id = "searchForm">
+    <!-- Search Bar -->
+    <div class="search-container">
+        <form id="searchForm">
             <input 
-            type = "text"
-            id = "searchInput"
-            placeholder = "Search Google...">
-            <button type = "submit" id = "searchButton">🔍</button>
+                type="text" 
+                id="searchInput" 
+                placeholder="Search Google..."
+            >
+            <button type="submit" id="searchButton">🔍</button>
         </form>
     </div>
 
-    <iframe
-        id = "browserFrame"
-        src = "about:blank"
-        class="browser-frame">
-    </iframe>
+    <!-- Footer (Exact Dawned OS Footer) -->
+    <footer id="footer">
+        <div id="footer-left">
+            <span>Dawned OS</span>
+        </div>
 
-    <script src="main.js"></script>
+        <div id="footer-center">
+            <span id="footer-clock"></span>
+        </div>
+
+        <div id="footer-right">
+            <span>Made by Aamir</span>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
 </body>
 </html>
