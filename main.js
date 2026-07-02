@@ -24,8 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const query = document.getElementById("searchInput").value.trim();
         if (query.length === 0) return;
+
         const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
-        document.getElementById("browserFrame").src = url;
+
+        // Open results in a new tab (works everywhere)
+        window.open(url, "_blank");
     });
+
 
 });
