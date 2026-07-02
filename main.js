@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         quoteBox.innerText = "Loading quote...";
 
         try {
-            const response = await fetch("https://type.fit/api/quotes");
+            const response = await fetch("https://zenquotes.io/api/random ");
             const data = await response.json();
 
             const randomQuote = data[Math.floor(Math.random() * data.length)];
