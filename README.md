@@ -5,7 +5,7 @@ This is a standalone webpage built for Dawned OS. It provides a motivational quo
 ## Features
 
 ### Motivational Quotes
-Quotes are loaded from the ZenQuotes API, which supports browser access. A random quote is displayed at the top of the page and refreshes every hour. If the API is unavailable, a set of local fallback quotes is used.
+Quotes are loaded from the Quotable API, which supports browser access and works reliably across Chrome, Edge, Firefox, and GitHub Pages. A random quote is displayed at the top of the page and refreshes every hour. If the API is unavailable, a set of local fallback quotes is used.
 
 ### Search Bar
 A centered search bar allows users to perform Google searches. Results open in a new browser tab.
@@ -31,7 +31,7 @@ Code
 
 ### Quotes
 Quotes are fetched from:
-https://zenquotes.io/api/random
+https://api.quotable.io/random
 
 If the API fails, a fallback list of quotes is used.
 
