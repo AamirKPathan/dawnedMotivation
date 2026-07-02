@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawned Motivation Browser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="quote-box" id="quote-box">
+        Loading Quote
+    </div>
+
+    <div class = "search-container">
+        <form id = "searchForm">
+            <input 
+            type = "text"
+            id = "searchInput"
+            placeholder = "Search Google...">
+            <button type = "submit" id = "searchButton">🔍</button>
+        </form>
+    </div>
+
+    <iframe
+        id = "browserFrame"
+        src = "https://www.google.com/webhp?igu=1"
+        class="browser-frame">
+    </iframe>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+git init
+git remote add origin https://github.com/yourusername/your-repo-name.git
+git branch -M main
+git add .
+git commit -m "first commit"
+git push -u origin main
