@@ -35,6 +35,8 @@ https://type.fit/api/quotes
 
 A random quote is selected from the list and displayed.
 
+### Access
+Access at this [link](https://aamirkpathan.github.io/dawnedMotivation/)
 ### Search
 The search bar creates a Google search URL and opens it in a new tab.
 
