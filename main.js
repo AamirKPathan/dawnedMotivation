@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------
        Load Quote (ZenQuotes API)
-       CORS-SAFE + fallback
+       CORS-safe + fallback
     ------------------------- */
     async function loadQuote() {
         const quoteBox = document.getElementById("quoteBox");
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Quote fetch failed:", error);
 
-            // Local fallback quotes
             const fallbackQuotes = [
                 "Believe in yourself.",
                 "Keep going.",
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     loadQuote();
-    setInterval(loadQuote, 3600000); // refresh every hour
+    setInterval(loadQuote, 3600000);
 
 
     /* -------------------------
@@ -55,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let hours = now.getHours();
         let minutes = now.getMinutes();
 
-        // Leading zeros
         hours = hours < 10 ? "0" + hours : hours;
         minutes = minutes < 10 ? "0" + minutes : minutes;
 
