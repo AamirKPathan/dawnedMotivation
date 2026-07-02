@@ -1,15 +1,22 @@
-function loadQuote() {
-    fetch("https://api.quotable.io/random")
-        .then(res => {
-            if (!res.ok) throw new Error("Network response was not ok");
-            return res.json();
-        })
-        .then(data => {
-            document.getElementById("quoteBox").innerText = data.content;
-        })
-        .catch(() => {
-            document.getElementById("quoteBox").innerText = "Stay positive and keep learning!";
+async function loadQuote() {
+    const quoteBox = document.getElementById("quoteBox");
+    quoteBox.innerText = "Loading quote...";
+
+    try {
+        const response = await fetch("https://api.quotable.io/random", {
+            cache: "no-cache"
         });
+
+        if (!response.ok) {
+            throw new Error("Network error");
+        }
+
+        const data = await response.json();
+        quoteBox.innerText = data.content;
+    } catch (error) {
+        console.error("Quote fetch failed:", error);
+        quoteBox.innerText = "Stay positive and keep learning!";
+    }
 }
 
 // Load immediately
