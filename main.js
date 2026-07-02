@@ -1,30 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------
-       Load Quote (TypeFit API)
+       Load Quote (ZenQuotes API)
+       CORS-SAFE + fallback
     ------------------------- */
     async function loadQuote() {
         const quoteBox = document.getElementById("quoteBox");
         quoteBox.innerText = "Loading quote...";
 
         try {
-            const response = await fetch("https://zenquotes.io/api/random ");
+            const response = await fetch("https://zenquotes.io/api/random");
             const data = await response.json();
-
-            const randomQuote = data[Math.floor(Math.random() * data.length)];
-            quoteBox.innerText = randomQuote.text;
+            quoteBox.innerText = data[0].q;
         } catch (error) {
             console.error("Quote fetch failed:", error);
-            quoteBox.innerText = "Stay positive and keep learning!";
+
+            // Local fallback quotes
+            const fallbackQuotes = [
+                "Believe in yourself.",
+                "Keep going.",
+                "You are capable of great things.",
+                "Small steps every day.",
+                "Stay focused and stay positive."
+            ];
+
+            quoteBox.innerText = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
         }
     }
 
     loadQuote();
-    setInterval(loadQuote, 3600000);
+    setInterval(loadQuote, 3600000); // refresh every hour
 
 
     /* -------------------------
-       Google Search (New Tab)
+       Google Search (opens in new tab)
     ------------------------- */
     document.getElementById("searchForm").addEventListener("submit", function(e) {
         e.preventDefault();
@@ -37,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* -------------------------
-       Dawned OS Clock
+       Dawned OS Footer Clock
     ------------------------- */
     function updateFooterClock() {
         const clock = document.getElementById("footer-clock");
@@ -46,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let hours = now.getHours();
         let minutes = now.getMinutes();
 
+        // Leading zeros
         hours = hours < 10 ? "0" + hours : hours;
         minutes = minutes < 10 ? "0" + minutes : minutes;
 
